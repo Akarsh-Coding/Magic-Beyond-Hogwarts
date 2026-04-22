@@ -1,34 +1,26 @@
-let lastScrollY = 0;
-const scrollLimit = 45;
-let header = document.querySelector(".header");
-let navbar = document.querySelector(".navbar");
-let searchImg = document.querySelector(".Search-img");
-let searchInput = document.querySelector(".Search-input");
-let searchBtn = document.querySelector(".Search-btn");
+const express = require("express");
+const app = express();
+const path = require("path");
+const ejsMate = require("ejs-mate");
 
-window.addEventListener("scroll", () => {
-    const current = window.scrollY;
 
-    if (current < scrollLimit) {
-        header.style.transform = "translateY(0)";
-    } else if (current > lastScroll) {
-        header.style.transform = "translateY(-100%)";
-    } else {
-        header.style.transform = "translateY(0)";
-    }
+// set EJS as view engine
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.urlencoded({extended:true}));
+app.engine("ejs", ejsMate);// enable layouts
+app.use(express.static(path.join(__dirname, "/public")));
 
-    if (header.style.transform == "translateY(-100%)") {
-        navbar.style.display = "grid";
-        // console.dir(navbar)
-    } else {
-        navbar.style.display = "none";
-    }
 
-    lastScroll = current;
+app.get("/", (req,res) => {
+    res.send("Hi, This is root server");
 });
 
-window.addEventListener("click", () => {
-    searchImg.style.display = "none"
-    searchInput.style.transform = "translateY(0)"
-    searchBtn.style.transform = "translateY(0)"
+// Main Routes
+app.get("/main", (req,res) => {
+    res.render("pages/index.ejs");
+});
+
+app.listen(8080, () => {
+    console.log("server is running at 8080")
 })

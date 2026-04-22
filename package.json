@@ -1,0 +1,26 @@
+{
+  "name": "magic-beyond-hogwarts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akarsh-Coding/Magic-Beyond-Hogwarts.git"
+  },
+  "keywords": [],
+  "author": "Akarsh Kumar",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Akarsh-Coding/Magic-Beyond-Hogwarts/issues"
+  },
+  "homepage": "https://github.com/Akarsh-Coding/Magic-Beyond-Hogwarts#readme",
+  "dependencies": {
+    "ejs": "^5.0.2",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.2.1"
+  }
+}
